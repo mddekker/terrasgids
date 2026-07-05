@@ -185,7 +185,7 @@
 
 <h2>AI-terrasverwarmingsadviseur</h2>
 <div class="card">
-  <p style="margin-top:0">Stel een open vraag — de adviseur kent jullie veranda, de maten en alle acht modellen. In de Claude-app verschijnt het antwoord direct hieronder; in een gewone browser opent je vraag mét alle context automatisch in claude.ai (gratis account volstaat).</p>
+  <p style="margin-top:0">Stel een open vraag — de adviseur kent jullie veranda, de maten en alle achttien modellen, en antwoordt direct hieronder. Alles werkt op deze pagina zelf; er wordt niets naar een externe dienst gestuurd.</p>
   <div class="chat">
     <input id="vraag" type="text" placeholder="Bijv.: wat kost een avondje verwarmen ons aan stroom?" onkeydown="if(event.key==='Enter')vraagAI()">
     <button id="vraagBtn" onclick="vraagAI()">Vraag</button>
@@ -368,22 +368,92 @@ function zetVraag(el){ document.getElementById('vraag').value = el.textContent; 
 const SPECSTR = "Modellen (richtprijs per stuk): 1) Solamagic S2 2500 BT, korte golf LowGlare, 850-970 euro, 2500W, ca 12m2, max ophang 2,80m, IP65, dimbaar 33/67/100 via app en afstandsbediening, softstart; beste allrounder. 2) Eurom Golden 2500 Shadow, korte golf, ca 130 euro, 2500W, ca 12m2, max 2,80m, IP65, 2 dimstanden, Coolblue 9,1 (341 reviews); budgettip. 3) Burda TERM2000 Ultra Low Glare, korte golf met kleurfilter, 300-450 euro, 1650-2650W varianten, IP67; middenweg. 4) Heatstrip Design 3200, donkerstraler zonder licht, 500-750 euro, 3200W, ca 13m2 beschut, 5-10 min opwarmen, windgevoelig, alleen zithoek. 5) Heatscope Pure 3000, carbon weinig licht, ca 1400 euro, 3000W, ca 10m2, dimbaar; premium. 6) VONROC Marsili 2000W, low glare, ca 90 euro, 1000/2000W, krap voor een zone; aanvulling. 7) Sunred Dark 2000, carbon roségoud element, prijs wisselend, claim 19m2 niet geverifieerd. 8) Bromic Tungsten 4000, ca 1400 euro, max ophang 2,70m (lager dan plafond), vrije 25A-groep per stuk, IP24, geen dimmer; afgeraden. 9) Eurom Q-time Golden 1800, halogeen golden lamp, 85-120 euro, 1800W, IP65, alleen aan/uit, duidelijk zichtbaar licht; goedkope instapper. 10) Qlima PEC 2021 RC, halogeen hanglamp-model boven de tafel, 100-129 euro, 1200/2100W, afstandsbediening, IP-klasse onbekend, warm geel/rood licht. 11) Veito Blade S2500, carbon, 200-329 euro (prijs wisselt sterk per shop), 1000-2500W in 4 standen, IP55, afstandsbediening, oranje gloed zichtbaar. 12) Blumfeldt Cosmic Beam Plus, keramische donkerstraler vrijwel zonder licht, ca 200 euro, 2400W, IP44, afstandsbediening met thermostaat en timer, minuten opwarmtijd en windgevoelig dus alleen zithoek, advieshoogte 2,2m. 13) Tansun Sorrento 2000, korte golf low glare HeLeN-lamp, 265-410 euro, 1500/2000W, IP55, dimmen via losse regelaar; Britse horeca-allrounder. 14) Star Progetti Heliosa 66 Amber, korte golf amberlamp, ca 425 euro, 2000W, IPX5, basisversie aan/uit, claim 25-28m2 niet geverifieerd; design-icoon, goed aan de open kant. 15) Solamagic 2000 ECO+ PRO, korte golf ultra low glare, 350-520 euro, 2000W, IP24, dimmen via losse ontvanger ca 186 euro extra; compacte Duitse allrounder. 16) Herschel Manhattan 3000, korte golf low glare, 495-520 euro, 2x1500W dimbaar 50/100 met afstandsbediening en timer, IP54, 104,5cm breed, 13A dus vrijwel eigen groep nodig; breed stralingsbeeld voor lange eettafel. 17) Heatscope Spot 2800, middengolf carbon, ca 960 euro, 2800W 50/100%, montage tot 3m, 6-8m2, windvaster dan korte-golf-lookalikes, 12A eigen groep gewenst, IP onbekend. 18) Heatscope Vision 3200, hybride donkerstraler vrijwel zonder licht, 1400-1650 euro, 3200W, IP24, aanbevolen hoogte tot 2,50m (kanttekening bij 2,80m plafond), 13,9A eigen groep, traag; premium designkeuze voor de beschutte zithoek.";
 const SITU = "Deels open houten veranda in Nederland, 9,6 x 4,8 m, plafond 2,8 m; voorzijde open, achter- en zijwand dicht. Twee zones apart verwarmen: eettafel (open kant) en beschutte loungehoek. Wensen: weinig rood licht, permanente plafondmontage aan de voorbalk, zones apart schakelbaar. Stroomtarief ca 0,30 euro/kWh; 2x 2500W vraagt twee aparte 16A-groepen. Eindadvies adviseur: 2x Solamagic S2 (budget: 2x Eurom Shadow; middenweg: 2x Burda TERM2000); Bromic afgeraden.";
 
-async function vraagAI() {
+const WATT = {solamagic:2500, eurom:2500, burda:2650, heatstrip:3200, heatscope:3000, vonroc:2000, sunred:2000, bromic:4000,
+  euromq:1800, qlima:2100, veito:2500, blumfeldt:2400, tansun:2000, heliosa:2000, ecopro:2000, herschel:3000, spot:2800, vision:3200};
+const ALIAS = {solamagic:['solamagic s2','s2 2500'], eurom:['golden 2500','shadow'], burda:['burda','term2000'], heatstrip:['heatstrip'],
+  heatscope:['heatscope pure','pure 3000'], vonroc:['vonroc','marsili'], sunred:['sunred','dark 2000'], bromic:['bromic','tungsten'],
+  euromq:['q-time','qtime','q time'], qlima:['qlima','pec 2021','pec2021'], veito:['veito','blade'], blumfeldt:['blumfeldt','cosmic beam'],
+  tansun:['tansun','sorrento'], heliosa:['heliosa','progetti','amber'], ecopro:['eco+','eco pro','ecopro','eco+ pro'],
+  herschel:['herschel','manhattan'], spot:['heatscope spot','spot 2800'], vision:['heatscope vision','vision 3200']};
+function vindModellen(v) {
+  const hits = [];
+  MODELLEN.forEach(m => { if (ALIAS[m.id].some(a => v.includes(a))) hits.push(m); });
+  if (!hits.some(m=>m.id==='solamagic'||m.id==='ecopro') && v.includes('solamagic')) hits.push(MODELLEN.find(m=>m.id==='solamagic'));
+  if (!hits.some(m=>m.id==='eurom'||m.id==='euromq') && v.includes('eurom')) hits.push(MODELLEN.find(m=>m.id==='eurom'));
+  if (!hits.length && v.includes('heatscope')) hits.push(MODELLEN.find(m=>m.id==='heatscope'));
+  return hits;
+}
+function eur(n){ return '€ ' + n.toLocaleString('nl-NL', n%1===0 ? {maximumFractionDigits:0} : {minimumFractionDigits:2, maximumFractionDigits:2}); }
+function profiel(m){
+  return `<p><b>${m.naam}</b> (${m.prijs} per stuk, 2 stuks ≈ ${m.pnum>0?eur(m.pnum*2):'n.t.b.'})<br>${m.specs}</p>
+  <p>Sterk: ${m.plus.join('; ')}.<br>Zwak: ${m.min.join('; ')}.</p>`;
+}
+function beantwoord(vraag) {
+  const v = ' ' + vraag.toLowerCase().replace(/[?!.]/g,'') + ' ';
+  const modellen = vindModellen(v);
+  const kostenIntent = /stroom|kwh|verbruik|energie/.test(v) || (/kost/.test(v) && /uur|uren|avond|verwarm|maand|winter/.test(v));
+
+  if (kostenIntent) {
+    const uurM = v.match(/(\d+(?:[.,]\d+)?)\s*(?:uur|uren)/);
+    const uren = uurM ? parseFloat(uurM[1].replace(',','.')) : 3;
+    const watt = modellen.length===1 ? WATT[modellen[0].id] : 2500;
+    const wie = modellen.length===1 ? '2× ' + modellen[0].naam : '2× 2500 W (zoals het eindadvies)';
+    const kw = (watt*2)/1000;
+    const avond = kw*uren*0.30;
+    return `<p><b>Stroomkosten voor ${wie}:</b> samen ${kw.toLocaleString('nl-NL')} kW.</p>
+    <p>Bij ${uren.toLocaleString('nl-NL')} uur op vol vermogen en € 0,30/kWh: <b>${eur(avond)} per avond</b> · ±${eur(avond*30)} per maand (30 avonden) · ±${eur(avond*120)} per seizoen (±120 avonden).</p>
+    <p>In de praktijk vaak minder: één zone aanzetten halveert het, en dimmen naar 67% of 50% scheelt navenant. Op halve kracht: ${eur(avond/2)} per avond.</p>`;
+  }
+  if (modellen.length>=2) {
+    return `<p><b>Vergelijking:</b></p>` + modellen.slice(0,3).map(profiel).join('') +
+    `<p>Kijk ook in de vergelijkingstabel hierboven: daar staan licht, snelheid, IP-klasse en elektra per model naast elkaar.</p>`;
+  }
+  if (/monter|montage|hoogte|hoek|ophang|plafond|beugel/.test(v)) {
+    return `<p><b>Montage bij jullie veranda (plafond 2,80 m):</b> hang de heaters aan de voorbalk, zo hoog mogelijk (2,60–2,80 m), schuin gericht (±30–45°) op respectievelijk de eettafel en de zithoek — niet recht boven de hoofden, maar iets ervóór.</p>
+    <p>Houd de afstand tot hout en doek aan die de fabrikant voorschrijft (meestal 30–50 cm van brandbaar materiaal). Let per model op de maximale ophanghoogte: de Solamagic S2 en Eurom Shadow gaan tot exact 2,80 m; de Bromic (max 2,70 m) en Heatscope Vision (advies t/m 2,50 m) knellen bij jullie plafond.</p>`;
+  }
+  if (/derde zone|3e zone|extra zone|uitbreid|later.*zone|zone.*later/.test(v)) {
+    return `<p><b>Derde zone later toevoegen:</b> laat de elektricien nu alvast een derde 16A-groep (of loze leiding) naar de voorbalk trekken — dat is het dure deel. De heater zelf bijhangen is daarna een klein klusje.</p>
+    <p>Kies voor de bediening één lijn: bij Solamagic schakel je alle zones via dezelfde app; bij anderen werkt een schakelaar per zone het prettigst.</p>`;
+  }
+  if (/licht|gloed|verlicht|fel|rood/.test(v)) {
+    return `<p><b>Zichtbaar licht per model, van donker naar fel:</b></p>
+    <p>Géén of vrijwel geen licht: Heatstrip Design, Blumfeldt Cosmic Beam, Heatscope Vision.<br>
+    Zeer weinig: Solamagic S2, Solamagic ECO+ PRO, Burda TERM2000 ULG, Heatscope Pure.<br>
+    Weinig: Eurom Shadow, Tansun Sorrento, Herschel Manhattan, VONROC, Sunred, Heatscope Spot (dieprode gloed).<br>
+    Zichtbaar: Veito Blade (oranje), Heliosa 66 (amber), Bromic.<br>
+    Duidelijk zichtbaar: Eurom Q-time, Qlima PEC (halogeen).</p>
+    <p>Let op: nul licht = donkerstraler = traag en windgevoelig, dus alleen boven de beschutte zithoek.</p>`;
+  }
+  if (/wind|open kant|open zijde|tocht|voorzijde/.test(v)) {
+    return `<p><b>De open voorzijde:</b> daar werkt alleen korte golf goed — die warmte voel je direct op de huid, ook als de lucht wegwaait. Geschikt: Solamagic S2, Eurom Shadow, Burda, Tansun Sorrento, Heliosa 66 (IPX5), Herschel Manhattan.</p>
+    <p>Donkerstralers (Heatstrip, Blumfeldt, Heatscope Vision) verwarmen deels de lucht en verliezen bij wind te veel: die horen alleen boven de beschutte zithoek. De Heatscope Spot zit ertussenin en is de windvastste van de designmodellen.</p>`;
+  }
+  if (/groep|elektra|zekering|amp|meterkast|aansluit|stroompunt|16a|25a/.test(v)) {
+    return `<p><b>Elektra:</b> twee heaters van 2500 W trekken samen ±22 A — dat past niet op één 16A-groep. Laat twee aparte 16A-groepen aanleggen met een eigen schakelaar per zone.</p>
+    <p>Extra aandacht: Herschel Manhattan (13 A), Heatscope Spot (12 A) en Vision (13,9 A) willen elk vrijwel een eigen groep, liefst met C-automaat vanwege de inschakelpiek. De Bromic Tungsten 4000 vraagt zelfs een vrije 25A-groep per stuk — daarom afgeraden.</p>`;
+  }
+  if (/dim|standen|afstandsbediening|app|bedien|timer|thermostaat/.test(v)) {
+    return `<p><b>Bediening en dimmen:</b> het luxest is de Solamagic S2 (33/67/100% via app én afstandsbediening, softstart). Veel standen heeft ook de Veito Blade (4 standen). Afstandsbediening plus timer: Herschel Manhattan en Blumfeldt Cosmic Beam (die zelfs met thermostaat).</p>
+    <p>Simpele 2 standen: Eurom Shadow, VONROC, Qlima. Losse (meerprijs-)regelaar nodig: Burda, Tansun, Solamagic ECO+ PRO (±€ 186). Alleen aan/uit: Eurom Q-time, Sunred, Heliosa-basisversie.</p>`;
+  }
+  if (/goedkoop|budget|prijs|duurste|onder de|maximaal/.test(v)) {
+    const sorted = MODELLEN.filter(m=>m.pnum>0).slice().sort((a,b)=>a.pnum-b.pnum);
+    const top = sorted.slice(0,5).map(m=>`${m.naam} (${m.prijs})`).join(' · ');
+    return `<p><b>Goedkoopste opties per stuk:</b> ${top}.</p>
+    <p>Beste prijs-kwaliteit blijft de Eurom Golden 2500 Shadow (±€ 130, Coolblue 9,1): vol vermogen, weinig licht, dimbaar. De échte budgetmodellen (Q-time, Qlima) geven duidelijk zichtbaar licht — dat botst met jullie wens.</p>`;
+  }
+  if (modellen.length===1) return profiel(modellen[0]);
+  return `<p>Daar kan ik op basis van de gegevens op deze pagina geen betrouwbaar antwoord op geven — ik reken en vergelijk alleen met de achttien onderzochte modellen en jullie veranda-gegevens.</p>
+  <p>Wat ik wél kan beantwoorden: stroomkosten (bijv. "wat kost 3 uur verwarmen?"), modelvergelijkingen ("Burda of Tansun?"), montage, licht, wind, elektra, bediening en prijzen. Of doorloop de keuzehulp hierboven voor een persoonlijk advies.</p>`;
+}
+function vraagAI() {
   const inp = document.getElementById('vraag'), out = document.getElementById('antwoord'), btn = document.getElementById('vraagBtn');
   const vraag = inp.value.trim();
   if (!vraag) return;
-  out.style.display='block'; out.textContent='Even denken…'; btn.disabled=true;
-  const prompt = "Je bent een Nederlandse terrasverwarmingsspecialist. Beantwoord de vraag van Martin en Desiree kort, concreet en in het Nederlands, uitsluitend op basis van de meegeleverde context over hun veranda en de acht onderzochte modellen. Reken waar nodig (stroomkosten = vermogen x uren x 0,30 euro/kWh). Als iets niet uit de context volgt, zeg dat eerlijk. Vraag: " + vraag;
-  if (window.cowork && window.cowork.askClaude) {
-    try {
-      const r = await window.cowork.askClaude(prompt, [SITU + " " + SPECSTR, JSON.stringify(antwoorden)]);
-      out.textContent = typeof r==='string' ? r : (r && (r.text||r.response||r.answer)) || JSON.stringify(r);
-    } catch(e) { out.textContent = 'Er ging iets mis bij het raadplegen van de adviseur. Probeer het nog eens.'; }
-  } else {
-    const kort = "Je bent terrasverwarmingsspecialist. Situatie: " + SITU + " " + SPECSTR + " Beantwoord kort en concreet in het Nederlands, reken waar nodig. Vraag: " + vraag;
-    window.open('https://claude.ai/new?q=' + encodeURIComponent(kort), '_blank');
-    out.textContent = 'Je vraag is geopend in claude.ai, inclusief alle context over de veranda en de modellen. Log daar in met een (gratis) Claude-account voor het antwoord.';
-  }
+  out.style.display='block'; btn.disabled=true;
+  out.innerHTML = '<p class="vraagEcho" style="color:var(--muted);font-style:italic"></p>' + beantwoord(vraag);
+  out.querySelector('.vraagEcho').textContent = '“' + vraag + '”';
   btn.disabled = false;
 }
 </script>
