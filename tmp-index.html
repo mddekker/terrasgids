@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mannen op reis 2026 · Palermo — het programma staat</title>
+<meta name="description" content="Mannenweekend Palermo, 23–26 oktober 2026. Vluchten, appartement, fietstour en voetbaltickets geboekt. Het complete draaiboek, met live weerbericht.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Palermo '26 · Het programma staat">
+<meta property="og:description" content="23–26 oktober 2026. Alles geboekt, draaiboek definitief — we gaan naar Sicilië.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#211b12; --ink-soft:#574b39; --paper:#f7e9cb; --paper-2:#f0dcb1;
+  --line:#e3cd9f; --card:#fffaef; --gold:#d99a2b; --gold-deep:#a9651c;
+  --terra:#bf4a22; --green:#3f7d52; --amber:#c98a2b; --red:#b23a32;
+  --palermo:#7a8b3c;
+  --shadow:0 20px 52px -22px rgba(70,42,8,.55);
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);
+  background:
+    radial-gradient(ellipse 120% 72% at 50% -6%, rgba(245,170,40,.62), rgba(245,170,40,0) 55%),
+    radial-gradient(circle at 86% 16%, rgba(202,96,32,.28), transparent 42%),
+    linear-gradient(180deg,#fbe6b4 0%,#f4d896 46%,#ecc983 100%);
+  background-attachment:fixed;
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,.serif{font-family:'Fraunces','Georgia',serif;font-weight:600;line-height:1.1;letter-spacing:-.01em}
+img{max-width:100%;display:block}
+a{color:var(--gold-deep)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.eyebrow{font-family:'Inter';font-weight:800;text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;color:var(--gold-deep)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(247,233,203,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:9px 12px;overflow-x:auto;scrollbar-width:none}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav .brand{font-family:'Fraunces';font-weight:900;font-size:1rem;margin-right:auto;white-space:nowrap;padding-right:10px}
+.nav a{font-size:.8rem;font-weight:600;text-decoration:none;color:var(--ink-soft);padding:7px 12px;border-radius:999px;white-space:nowrap;transition:.2s}
+.nav a:hover{background:var(--paper-2);color:var(--ink)}
+.nav a.vote{background:var(--ink);color:#fff}
+.nav a.vote:hover{background:var(--terra)}
+
+/* HERO BANNER (winnaar) */
+.hero{position:relative;color:#fff;overflow:hidden}
+.hero .bg{position:absolute;inset:0;z-index:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .bg::after{content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%,rgba(235,165,45,.42),transparent 58%),
+    linear-gradient(180deg,rgba(120,55,8,.34) 0%,rgba(40,22,8,.72) 55%,rgba(24,14,6,.9) 100%)}
+.hero .inner{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:54px 20px 46px;text-align:center}
+.hero .inner::before{content:"";position:absolute;top:-30px;left:50%;width:min(540px,90vw);height:min(540px,90vw);transform:translateX(-50%);border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(255,201,92,.55),rgba(255,201,92,0) 62%);animation:sunpulse 7s ease-in-out infinite}
+.hero .winner-badge,.hero h1,.hero .sicily,.hero .dates,.hero .lede,.hero .standings{position:relative;z-index:1}
+@keyframes sunpulse{0%,100%{opacity:.7;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
+.winner-badge{display:inline-block;background:var(--gold);color:#211e1a;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;padding:7px 16px;border-radius:999px}
+.hero h1{font-size:clamp(3.3rem,13vw,6.8rem);font-weight:900;letter-spacing:-.035em;margin:.08em 0 .02em;text-transform:uppercase;text-shadow:0 2px 0 rgba(0,0,0,.3),0 8px 34px rgba(0,0,0,.6),0 0 60px rgba(255,180,60,.35)}
+.hero .sicily{font-family:'Fraunces';font-style:italic;font-size:clamp(1rem,4vw,1.4rem);opacity:.92}
+.hero .dates{margin-top:14px;font-weight:600;font-size:.95rem;opacity:.95}
+.hero .dates b{color:var(--gold)}
+.hero .lede{max-width:600px;margin:18px auto 0;opacity:.92;font-size:.98rem}
+
+/* einduitslag bars */
+.standings{max-width:560px;margin:26px auto 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:18px 18px 14px;backdrop-filter:blur(4px)}
+.standings .st-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.standings .st-head b{font-family:'Fraunces';font-size:1.05rem}
+.standings .st-head span{font-size:.74rem;opacity:.8}
+.srow{display:grid;grid-template-columns:104px 1fr 42px;align-items:center;gap:10px;margin:7px 0;font-size:.9rem}
+.srow .nm{text-align:left;font-weight:600;white-space:nowrap}
+.srow .track{height:22px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden}
+.srow .bar{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold-deep),var(--gold))}
+.srow.win .bar{background:linear-gradient(90deg,#d9a441,#ffd886)}
+.srow .pt{text-align:right;font-family:'Fraunces';font-weight:700}
+.srow.win .nm{color:#ffd886}
+.standings .foot{font-size:.74rem;opacity:.8;margin:10px 0 0;font-style:italic}
+
+/* sections */
+.sec{padding:52px 0 8px;scroll-margin-top:60px}
+.sec h2{font-size:clamp(2.1rem,6vw,3rem);font-weight:900;letter-spacing:-.025em;margin:0 0 4px;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.sec h2::after,.crew h2::after{content:"";display:block;width:72px;height:6px;border-radius:999px;margin:12px auto 2px;background:linear-gradient(90deg,var(--terra),var(--gold))}
+.sec:not(.crew) h2::after{margin-left:0;margin-right:0}
+.sec .eyebrow+h2{margin-top:4px}
+.sec .intro{color:var(--ink-soft);max-width:680px;margin:6px 0 18px}
+
+/* CREW / MEME */
+.crew .head{text-align:center;max-width:680px;margin:0 auto 22px}
+.crew h2{font-size:clamp(2rem,5.6vw,2.7rem);font-weight:900;letter-spacing:-.025em;margin:.2em 0 .3em}
+.crew .head p{color:var(--ink-soft);margin:0}
+.memes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.meme{position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5;transform:rotate(var(--r,0deg));transition:.3s}
+.meme:hover{transform:rotate(0deg) scale(1.02)}
+.meme img{width:100%;height:100%;object-fit:cover}
+.meme figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 13px;font-family:'Arial Narrow','Inter',sans-serif;font-weight:800;text-transform:uppercase;line-height:1.05;font-size:1.02rem;color:#fff;text-align:center;text-shadow:2px 2px 0 #000,-2px 2px 0 #000,2px -2px 0 #000,-2px -2px 0 #000,0 3px 10px rgba(0,0,0,.7);background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.meme .kicker{position:absolute;top:10px;left:10px;background:var(--gold);color:#211e1a;font-family:'Inter';font-weight:800;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+
+/* option cards (vlucht / verblijf) */
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+.opts.four{grid-template-columns:repeat(2,1fr)}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:0 10px 30px -22px rgba(0,0,0,.4);display:flex;flex-direction:column}
+.opt .lab{display:inline-block;align-self:flex-start;background:var(--paper-2);color:var(--ink-soft);font-weight:800;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.opt h4{margin:0 0 8px;font-size:1.12rem}
+.opt .kv{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.88rem}
+.opt .kv:last-of-type{border-bottom:0}
+.opt .kv .k{color:var(--ink-soft)}
+.opt .kv .v{font-weight:600;text-align:right}
+.opt .price{font-family:'Fraunces';font-weight:900;font-size:1.4rem;margin:10px 0 2px}
+.opt .price small{font-family:'Inter';font-weight:600;font-size:.8rem;color:var(--ink-soft)}
+.opt .tagline{font-size:.86rem;color:var(--ink-soft);margin:0 0 12px}
+.opt .btn{margin-top:auto}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:.84rem;padding:10px 16px;border-radius:999px;transition:.2s;text-align:center}
+.btn:hover{background:var(--terra)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.74rem;font-weight:700}
+.pill.ok{background:#e3f0e6;color:var(--green)}
+.muted{color:var(--ink-soft);font-size:.82rem}
+
+/* timeline */
+.timeline{margin-top:14px;display:grid;gap:12px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;position:relative;overflow:hidden}
+.day::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px}
+.day.vr::before{background:var(--gold)} .day.za::before{background:var(--terra)}
+.day.zo::before{background:var(--green)} .day.ma::before{background:var(--ink-soft)}
+.day h5{margin:0 0 4px;font-family:'Fraunces';font-size:1.05rem;display:flex;align-items:center;gap:10px}
+.day .badge{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;padding:3px 9px;border-radius:999px}
+.day.vr .badge{background:var(--gold)} .day.za .badge{background:var(--terra)}
+.day.zo .badge{background:var(--green)} .day.ma .badge{background:var(--ink-soft)}
+.day p{margin:0;font-size:.92rem;color:var(--ink-soft)}
+
+/* activiteiten info-grid */
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.act{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.act .h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.act .h b{font-size:.98rem}
+.act .price{font-family:'Fraunces';font-weight:700;font-size:.86rem;color:var(--gold-deep);white-space:nowrap}
+.act p{margin:0;font-size:.84rem;color:var(--ink-soft)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.gallery figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 10px 24px -18px rgba(0,0,0,.5)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gallery figure:hover img{transform:scale(1.06)}
+
+/* VOTE / KIES MEE */
+.vote-sec{padding:56px 0 20px;scroll-margin-top:60px}
+.vote-card{background:linear-gradient(160deg,#211e1a,#2c2620);color:#f4ecdd;border-radius:28px;padding:30px 22px;box-shadow:var(--shadow)}
+.vote-card h2{color:#fff;font-size:2rem;margin:0 0 6px}
+.vote-card .intro{color:#cdbfa8;font-size:.95rem;margin:0 0 16px;max-width:640px}
+.field-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:#cdbfa8;font-weight:700;margin:22px 0 8px}
+.req{display:inline-block;background:var(--gold);color:#211e1a;font-size:.6rem;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:999px;vertical-align:middle;margin-left:6px}
+.hint{font-size:.85rem;color:#e6dcc8;margin:0 0 10px}
+.ferr{display:none;color:#ffb3a7;font-size:.9rem;font-weight:700;margin:10px 0 0}
+.ferr.show{display:block}
+.namepick{display:flex;gap:8px;flex-wrap:wrap}
+.namepick label{flex:1;min-width:96px;cursor:pointer}
+.namepick input{position:absolute;opacity:0}
+.namepick span{display:block;text-align:center;padding:14px;border:1.5px solid #5b5346;border-radius:14px;font-weight:700;transition:.2s}
+.namepick input:checked+span{background:var(--gold);color:#211e1a;border-color:var(--gold)}
+.namepick.error span{border-color:#e06a5a;box-shadow:0 0 0 2px rgba(224,106,90,.3)}
+/* radio option chips */
+.choice{display:grid;gap:10px}
+.choice.cols{grid-template-columns:1fr 1fr}
+.chip2{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.14);border-radius:14px;padding:13px 14px;cursor:pointer;transition:.15s}
+.chip2:hover{border-color:var(--gold)}
+.chip2.picked{border-color:var(--gold);background:rgba(200,150,62,.12)}
+.chip2 input{position:absolute;opacity:0}
+.chip2 .tick{width:22px;height:22px;border-radius:50%;border:2px solid #5b5346;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;color:transparent;font-size:.72rem}
+.chip2.picked .tick{background:var(--gold);border-color:var(--gold);color:#211e1a}
+.chip2 .ct b{color:#fff;font-family:'Fraunces';font-size:1rem;display:block}
+.chip2 .ct .m{font-size:.8rem;color:#cdbfa8;margin-top:1px}
+.choice.error .chip2{border-color:#e06a5a}
+/* checkbox activiteiten */
+.checkgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.check{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.14);border-radius:13px;padding:12px;cursor:pointer;font-size:.9rem;transition:.15s}
+.check:hover{border-color:var(--gold)}
+.check.picked{border-color:var(--gold);background:rgba(200,150,62,.12)}
+.check input{position:absolute;opacity:0}
+.check .box{width:22px;height:22px;border-radius:6px;border:2px solid #5b5346;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:transparent;font-size:.7rem}
+.check.picked .box{background:var(--gold);border-color:var(--gold);color:#211e1a}
+.check b{color:#fff;font-weight:600}
+textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:12px;color:#fff;padding:11px 13px;font-family:'Inter';font-size:.92rem;resize:vertical;min-height:80px}
+textarea::placeholder{color:#9c9182}
+textarea:focus{outline:2px solid var(--gold)}
+.submit{margin-top:24px;width:100%;background:var(--gold);color:#211e1a;border:0;border-radius:999px;padding:16px;font-family:'Fraunces';font-weight:700;font-size:1.1rem;cursor:pointer;transition:.2s}
+.submit:hover{background:#fff}
+.vote-foot{font-size:.78rem;color:#a99d88;margin-top:14px;text-align:center}
+#thanks{display:none;text-align:center;padding:40px 10px}
+#thanks h3{color:#fff;font-size:1.8rem;margin:0 0 8px}
+#thanks p{color:#cdbfa8}
+
+/* tussenstand keuzes */
+.results .rbox{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.tgroup{margin:18px 0}
+.tgroup h4{margin:0 0 8px;font-size:1rem}
+.trow{display:grid;grid-template-columns:150px 1fr 34px;align-items:center;gap:10px;font-size:.88rem;margin:6px 0}
+.trow .tnm{font-weight:600}
+.trow .track{height:22px;background:var(--paper-2);border-radius:999px;overflow:hidden}
+.trow .bar{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold-deep),var(--gold));min-width:2px}
+.trow .cnt{text-align:right;font-family:'Fraunces';font-weight:700}
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:8px}
+.pcard{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:13px 15px;font-size:.85rem}
+.pcard .who{font-family:'Fraunces';font-weight:700;font-size:1.05rem;margin-bottom:4px}
+.pcard .li{color:var(--ink-soft)}
+.pcard .li b{color:var(--ink)}
+.pcard .note{font-style:italic;color:var(--ink-soft);margin-top:6px}
+.pcard.missing{opacity:.6;font-style:italic}
+.rstatus{color:var(--ink-soft);font-style:italic}
+
+/* DISCLAIMER / FOOTER */
+.disc{padding:30px 0}
+.disc .box{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+.disc h3{margin:0 0 10px;font-size:1.1rem}
+.disc ul{margin:0;padding-left:20px;color:var(--ink-soft);font-size:.86rem}
+.disc li{margin:6px 0}
+footer{text-align:center;padding:30px 20px 50px;color:var(--ink-soft);font-size:.82rem}
+footer .big{font-family:'Fraunces';font-weight:900;font-size:1.3rem;color:var(--ink);display:block;margin-bottom:6px}
+
+/* DICE DECO (dobbelen — Joris verliest) */
+.dice-deco{display:inline-flex;gap:16px;justify-content:center;margin:8px 0 4px;filter:drop-shadow(0 10px 16px rgba(70,42,8,.45))}
+.dice-deco .die{width:66px;height:66px;animation:diebob 3.4s ease-in-out infinite}
+.dice-deco .die:nth-child(2){animation-delay:-1.7s;animation-duration:3.9s}
+.dice-deco:hover .die{animation:dieroll .7s cubic-bezier(.34,1.56,.64,1)}
+.dice-deco .die .face{fill:#fffaef;stroke:#211b12;stroke-width:2.5}
+.dice-deco .die .pip{fill:#211b12}
+@keyframes diebob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-7px) rotate(6deg)}}
+@keyframes dieroll{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+/* subtiel dobbelsteen-puntpatroon achter de ploeg */
+.crew{position:relative}
+.crew::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.85;pointer-events:none;
+  background-image:radial-gradient(rgba(169,101,28,.22) 2.4px,transparent 3px);
+  background-size:24px 24px}
+
+/* GUINNESS PINT (Ierse pub-crawl) */
+.act.guinness{grid-column:1 / -1;position:relative;overflow:hidden;border:0;padding:24px 26px;min-height:158px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(135deg,#2c2218 0%,#120c07 72%);box-shadow:0 22px 44px -18px rgba(0,0,0,.78);
+  border-top:4px solid #e7c66b}
+.act.guinness .h{position:relative;z-index:1}
+.act.guinness .h b{color:#f7eed6;font-size:1.3rem;letter-spacing:.01em}
+.act.guinness .price{color:#e7c66b;font-size:.95rem}
+.act.guinness p{color:#d6c7aa;position:relative;z-index:1;max-width:70%;font-size:.96rem}
+.pint{position:absolute;right:28px;top:50%;transform:translateY(-50%);width:100px;height:148px;z-index:0;
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,.6))}
+.pint .liquid{animation:guinnesspour 6.5s ease-in-out infinite}
+.pint .beer{fill:#2c1708}
+.pint .foam{fill:#f3e7c8}
+.pint .glassline{fill:none;stroke:rgba(255,255,255,.55);stroke-width:2}
+.pint .shine{fill:rgba(255,255,255,.16)}
+@keyframes guinnesspour{0%{transform:translateY(82px)}42%,92%{transform:translateY(3px)}100%{transform:translateY(82px)}}
+
+@media(prefers-reduced-motion:reduce){
+  .dice-deco .die,.pint .liquid,.hero .inner::before{animation:none}
+  .pint .liquid{transform:translateY(3px)}
+}
+
+@media(max-width:760px){
+  body{font-size:16px}
+  .act.guinness p{max-width:100%}
+  .pint{opacity:.5;right:6px}
+  .opts,.opts.four{grid-template-columns:1fr}
+  .acts{grid-template-columns:1fr}
+  .checkgrid{grid-template-columns:1fr}
+  .choice.cols{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .memes{grid-template-columns:1fr 1fr;gap:10px}
+  .meme figcaption{font-size:.84rem;padding:22px 9px 11px}
+  .srow{grid-template-columns:88px 1fr 38px}
+  .trow{grid-template-columns:120px 1fr 30px}
+}
+
+/* ---- BOEKINGEN (geboekt) ---- */
+.booked{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;background:linear-gradient(135deg,#347a4f,#3f7d52);color:#fff;border-radius:var(--radius);padding:16px 20px;box-shadow:var(--shadow);margin:14px 0 6px}
+.booked .bk-badge{display:inline-flex;align-items:center;gap:7px;background:#fff;color:#2c6a44;font-weight:800;text-transform:uppercase;letter-spacing:.07em;font-size:.74rem;padding:7px 15px;border-radius:999px;white-space:nowrap}
+.booked .bk-txt{font-weight:600;font-size:.95rem}
+.booked .bk-ref{margin-left:auto;font-size:.84rem;opacity:.95;white-space:nowrap}
+.booked .bk-ref b{font-family:'Fraunces';font-weight:700;letter-spacing:.03em}
+.opt .lab.geboekt{background:#e3f0e6;color:var(--green)}
+.opt .route{font-family:'Fraunces';font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:9px;margin:2px 0 10px}
+.opt .route .arr{color:var(--gold-deep);font-size:1.2rem}
+.pax{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pax .p{background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-weight:700;font-size:.85rem}
+.pax .p span{color:var(--ink-soft);font-weight:500}
+
+/* layover-grap */
+.layover{margin-top:8px;background:linear-gradient(135deg,#2c2218 0%,#171009 74%);color:#f3e7c8;border-radius:var(--radius);padding:26px 26px 22px;box-shadow:0 22px 44px -18px rgba(0,0,0,.7);border-top:4px solid var(--gold)}
+.layover h3{color:#fff;font-size:clamp(1.3rem,3.6vw,1.8rem);margin:6px 0 4px;font-weight:900;letter-spacing:-.02em}
+.layover .sub{color:#d6c7aa;font-size:.9rem;margin:0 0 18px;font-style:italic}
+.layover ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:13px 24px}
+.layover li{display:flex;gap:12px;font-size:.93rem;color:#e4d8bd;line-height:1.5}
+.layover li .ico{font-size:1.2rem;flex-shrink:0;line-height:1.3}
+.layover li b{color:#fdf3d8}
+.layover .kick{margin:18px 0 0;font-size:.95rem;color:#e7c66b;font-weight:700}
+
+/* Casa geboekt */
+.casa{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;margin-top:14px}
+.casa .desc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;box-shadow:0 10px 30px -22px rgba(0,0,0,.4)}
+.casa .desc h4{margin:0 0 10px;font-size:1.4rem}
+.casa .desc p{margin:0 0 11px;color:var(--ink-soft);font-size:.95rem}
+.casa .desc p:last-child{margin-bottom:0}
+.casa .facts{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;align-self:start}
+.casa .facts .kv{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:.88rem}
+.casa .facts .kv:last-child{border-bottom:0}
+.casa .facts .k{color:var(--ink-soft)}
+.casa .facts .v{font-weight:700;text-align:right}
+@media(max-width:760px){
+  .casa{grid-template-columns:1fr}
+  .layover ul{grid-template-columns:1fr}
+  .booked .bk-ref{margin-left:0;width:100%}
+}
+
+/* ============ LA NOTTE — na zonsondergang ============ */
+.notte{position:relative;overflow:hidden;color:#f6e2c8;margin:56px 0 8px;border-top:1px solid rgba(255,182,124,.3);border-bottom:1px solid rgba(255,182,124,.3);
+  background:
+    radial-gradient(ellipse 70% 60% at 82% 22%, rgba(214,92,66,.42), transparent 62%),
+    radial-gradient(ellipse 80% 70% at 10% 90%, rgba(150,40,72,.38), transparent 60%),
+    linear-gradient(165deg,#2a1020 0%,#3d1526 42%,#24101c 100%)}
+.notte::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 24%, rgba(255,190,110,.30) 0 3px, transparent 4px),
+    radial-gradient(circle at 26% 68%, rgba(255,170,120,.22) 0 5px, transparent 6px),
+    radial-gradient(circle at 44% 16%, rgba(255,206,140,.26) 0 2px, transparent 3px),
+    radial-gradient(circle at 63% 78%, rgba(255,150,110,.20) 0 6px, transparent 7px),
+    radial-gradient(circle at 78% 40%, rgba(255,214,150,.24) 0 3px, transparent 4px),
+    radial-gradient(circle at 90% 66%, rgba(255,180,120,.18) 0 5px, transparent 6px),
+    radial-gradient(circle at 34% 90%, rgba(255,200,140,.16) 0 3px, transparent 4px);
+  filter:blur(1px);animation:bokeh 11s ease-in-out infinite}
+@keyframes bokeh{0%,100%{opacity:.55;transform:translateY(0)}50%{opacity:1;transform:translateY(-10px)}}
+.notte .wrap{position:relative;z-index:2;padding-top:60px;padding-bottom:54px}
+.notte .eyebrow{color:#e8a06a}
+.notte h2{font-size:clamp(2rem,6vw,3.1rem);font-weight:900;letter-spacing:-.03em;margin:.12em 0 .1em;
+  text-shadow:0 2px 0 rgba(0,0,0,.35),0 14px 44px rgba(255,120,90,.28)}
+.notte h2 em{font-weight:400;font-style:italic;color:#f0b27f}
+.notte .lede{max-width:640px;font-size:1.02rem;color:#f1d9c2;opacity:.94}
+
+/* neon-bordje */
+.neon{display:inline-block;margin:0 0 18px;padding:8px 20px;border-radius:999px;
+  font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:600;font-size:1.05rem;
+  color:#ffd9a8;border:1px solid rgba(255,180,120,.5);
+  background:rgba(255,150,90,.08);
+  text-shadow:0 0 12px rgba(255,170,110,.9),0 0 34px rgba(255,120,80,.55);
+  box-shadow:0 0 22px rgba(255,140,90,.22),inset 0 0 22px rgba(255,140,90,.12);
+  animation:flicker 5.5s infinite}
+@keyframes flicker{0%,96%,100%{opacity:1}97%{opacity:.55}98%{opacity:.95}99%{opacity:.6}}
+
+/* kaarten */
+.notte-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:14px;margin:26px 0 0}
+.ncard{background:rgba(255,225,200,.07);border:1px solid rgba(255,180,140,.22);border-radius:16px;padding:16px 17px;
+  backdrop-filter:blur(6px);transition:.25s}
+.ncard:hover{background:rgba(255,225,200,.12);border-color:rgba(255,190,150,.4);transform:translateY(-3px)}
+.ncard b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.06rem;color:#ffcb95;margin-bottom:5px;letter-spacing:-.01em}
+.ncard p{margin:0;font-size:.92rem;line-height:1.6;color:#efd6bf;opacity:.93}
+
+/* ---- WEER (live) ---- */
+.casa-gal{grid-template-columns:repeat(3,1fr)}
+.wx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.wx{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px;text-align:center;box-shadow:0 10px 30px -22px rgba(0,0,0,.4)}
+.wx .d{font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
+.wx .ic{font-size:2.4rem;line-height:1.3;margin:6px 0 2px}
+.wx .t{font-family:'Fraunces';font-weight:900;font-size:1.5rem}
+.wx .t small{font-weight:600;font-size:.95rem;color:var(--ink-soft)}
+.wx .m{font-size:.8rem;color:var(--ink-soft);margin-top:4px}
+.wx-verdict{margin-top:14px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:14px 18px;font-size:.95rem}
+.wx-note{font-size:.78rem;color:var(--ink-soft);margin-top:10px;font-style:italic}
+@media(max-width:760px){.wx-grid{grid-template-columns:1fr 1fr}.casa-gal{grid-template-columns:repeat(2,1fr)}}
+
+/* featured activiteit (catacombe / streetfood) */
+.act.feature{grid-column:1 / -1;border-left:5px solid var(--gold)}
+.act.feature p{font-size:.92rem}
+.act .booklinks{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.act .booklinks a{font-size:.8rem;font-weight:700;text-decoration:none;background:var(--ink);color:#fff;padding:7px 14px;border-radius:999px}
+.act .booklinks a:hover{background:var(--terra)}
+.act .lab-booked{display:inline-block;background:#e3f0e6;color:var(--green);font-weight:800;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+
+/* ---- COUNTDOWN ---- */
+.countdown{display:flex;gap:10px;justify-content:center;margin:20px auto 0;position:relative;z-index:1;flex-wrap:wrap}
+.cd{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:10px 14px;min-width:76px;backdrop-filter:blur(4px)}
+.cd b{display:block;font-family:'Fraunces';font-weight:900;font-size:1.7rem;color:#ffd886;line-height:1.1}
+.cd span{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;opacity:.85}
+.cd-done{font-family:'Fraunces';font-style:italic;font-size:1.1rem;color:#ffd886}
+
+/* ---- TICKER ---- */
+.ticker{background:var(--ink);color:#f3e7c8;overflow:hidden;white-space:nowrap;border-bottom:3px solid var(--gold)}
+.ticker .belt{display:inline-block;padding:9px 0;animation:belt 46s linear infinite}
+.ticker span{margin:0 26px;font-size:.84rem;font-weight:600}
+.ticker b{color:#ffd886}
+@keyframes belt{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker .belt{animation:none;white-space:normal}}
+
+/* ---- WEEKENDREGELS ---- */
+.regels{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 28px;position:relative;overflow:hidden}
+.regels::before{content:"§";position:absolute;right:14px;top:-18px;font-family:'Fraunces';font-size:9rem;color:var(--paper-2);z-index:0}
+.regels h3{margin:0 0 4px;font-size:1.5rem;position:relative;z-index:1}
+.regels .sub{color:var(--ink-soft);font-size:.86rem;font-style:italic;margin:0 0 14px;position:relative;z-index:1}
+.regels ol{margin:0;padding-left:22px;position:relative;z-index:1;display:grid;gap:9px}
+.regels li{font-size:.93rem;color:var(--ink-soft)}
+.regels li b{color:var(--ink)}
+
+/* ---- GASTENBOEK ---- */
+.gb-card{background:linear-gradient(160deg,#211e1a,#2c2620);color:#f4ecdd;border-radius:28px;padding:30px 24px;box-shadow:var(--shadow)}
+.gb-card h2{color:#fff;font-size:2rem;margin:0 0 6px}
+.gb-card .intro{color:#cdbfa8;font-size:.95rem;margin:0 0 16px;max-width:640px}
+.gb-names{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.gb-names button{flex:1;min-width:96px;background:transparent;border:1.5px solid #5b5346;border-radius:14px;color:#f4ecdd;font-family:'Inter';font-weight:700;font-size:.95rem;padding:13px;cursor:pointer;transition:.2s}
+.gb-names button.on{background:var(--gold);color:#211e1a;border-color:var(--gold)}
+.gb-send{margin-top:14px;width:100%;background:var(--gold);color:#211e1a;border:0;border-radius:999px;padding:15px;font-family:'Fraunces';font-weight:700;font-size:1.05rem;cursor:pointer;transition:.2s}
+.gb-send:hover{background:#fff}
+.gb-send:disabled{opacity:.55;cursor:wait}
+.gb-status{font-size:.85rem;color:#cdbfa8;margin-top:10px;min-height:1.2em}
+.gb-list{margin-top:26px;display:grid;gap:12px}
+.gb-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:14px 17px;transform:rotate(var(--r,0deg))}
+.gb-item .who{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.gb-item .who b{font-family:'Fraunces';font-size:1.05rem;color:#ffd886}
+.gb-item .who time{font-size:.72rem;color:#a99d88}
+.gb-item p{margin:6px 0 0;font-size:.94rem;color:#f0e7d4;line-height:1.55}
+.gb-avatar{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#211e1a;font-weight:900;align-items:center;justify-content:center;margin-right:9px;font-size:.9rem;font-family:'Fraunces'}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="brand">Palermo&nbsp;’26 🏆</span>
+    <a href="#vluchten">Vluchten</a>
+    <a href="#verblijf">Verblijf</a>
+    <a href="#weer">Weer</a>
+    <a href="#nacht">Na tienen</a>
+    <a href="#mannendingen">Wat we doen</a>
+    <a href="#gastenboek">Gastenboek</a>
+    <a href="#programma" class="vote">Draaiboek ★</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true"><div class="belt" id="tickerbelt"></div></div>
+
+<!-- HERO: WINNAAR -->
+<header class="hero" id="uitslag">
+  <div class="bg"><img src="images/palermo-1.jpg" alt="Teatro Massimo, Palermo"></div>
+  <div class="inner">
+    <span class="winner-badge">🎉 Alles is geboekt — we gáán!</span>
+    <h1>Palermo</h1>
+    <p class="sicily">Sicilië, Italië — het is officieel, de tickets zijn binnen</p>
+    <p class="dates"><b>vrijdag 23 — maandag 26 oktober 2026</b> · 5 man · alles geboekt</p>
+    <div class="countdown" id="countdown" aria-label="Aftellen naar vertrek"></div>
+    <p class="lede">Het kiezen is voorbij, het is nu officieel een expeditie: vluchten geboekt, appartement geboekt, fietstour geboekt én de kaarten voor Palermo – Carrarese zijn binnen. Hieronder het complete draaiboek, inclusief live weerbericht. Het enige wat jij nog hoeft te regelen is een schoon overhemd en een smoes voor het thuisfront. 🍻</p>
+
+    <div class="standings">
+      <div class="st-head"><b>De einduitslag</b><span>punten · 5 stemmen</span></div>
+      <div class="srow win"><span class="nm">🥇 Palermo</span><div class="track"><div class="bar" style="width:100%"></div></div><span class="pt">19</span></div>
+      <div class="srow"><span class="nm">🥈 Malaga</span><div class="track"><div class="bar" style="width:63%"></div></div><span class="pt">12</span></div>
+      <div class="srow"><span class="nm">🥉 Lissabon</span><div class="track"><div class="bar" style="width:58%"></div></div><span class="pt">11</span></div>
+      <div class="srow"><span class="nm">4. Alicante</span><div class="track"><div class="bar" style="width:42%"></div></div><span class="pt">8</span></div>
+      <p class="foot">4 van de 5 zetten Palermo op 1. Alleen Marcel ging voor Lissabon — sorry Marcel. 🤷</p>
+    </div>
+  </div>
+</header>
+
+<!-- DE PLOEG -->
+<section class="sec crew" id="ploeg">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Dezelfde vijf koppen</span>
+      <h2>De ploeg gaat naar Sicilië</h2>
+      <div class="dice-deco" title="Dubbel één — Joris gooit weer raak 🎲" aria-label="Twee dobbelstenen, dubbel één">
+        <svg class="die" viewBox="0 0 46 46" aria-hidden="true"><rect class="face" x="4" y="4" width="38" height="38" rx="9"/><circle class="pip" cx="23" cy="23" r="4.6"/></svg>
+        <svg class="die" viewBox="0 0 46 46" aria-hidden="true"><rect class="face" x="4" y="4" width="38" height="38" rx="9"/><circle class="pip" cx="23" cy="23" r="4.6"/></svg>
+      </div>
+      <p>Martin, Martijn, Joris, Niels &amp; Marcel. Vorig jaar Sevilla, dit jaar Palermo. Het draaiboek is heilig: Guinness in de Ierse pub, dobbelen (Joris verliest — elke keer weer, het is bijna knap), terrassen met uitzicht in álle opzichten, en één verplichte cultuurfoto voor het thuisfront.</p>
+    </div>
+    <div class="memes">
+      <figure class="meme" style="--r:-2deg"><span class="kicker">Vrijdagavond</span><img src="images/crew/crew-d.jpg" alt="De ploeg in de kroeg" loading="lazy"><figcaption>Dit is waar we het voor doen</figcaption></figure>
+      <figure class="meme" style="--r:1.5deg"><span class="kicker">Terrasdiscipline</span><img src="images/crew/crew-a.jpg" alt="Terras" loading="lazy"><figcaption>Joris betaalt dit rondje. Verloren met dobbelen.</figcaption></figure>
+      <figure class="meme" style="--r:-1deg"><span class="kicker">Heel even cultuur</span><img src="images/crew/crew-b.jpg" alt="Plaza" loading="lazy"><figcaption>Eén foto bij de bezienswaardigheid, dan weer bier</figcaption></figure>
+      <figure class="meme" style="--r:2deg"><span class="kicker">De groepsfoto</span><img src="images/crew/crew-c.jpg" alt="Groepsfoto" loading="lazy"><figcaption>Loopt traditioneel uit de hand</figcaption></figure>
+    </div>
+
+    <div class="regels">
+      <h3>📜 Het weekendreglement</h3>
+      <p class="sub">Artikel 1 t/m 8, vastgesteld aan een stamtafel, unaniem aangenomen, nooit nagelezen.</p>
+      <ol>
+        <li><b>Wat in Palermo gebeurt, blijft in Palermo.</b> Tenzij het grappig is. Dan komt het op deze site en bij de kerstborrel ter sprake.</li>
+        <li><b>Voor middernacht naar bed willen</b> mag, maar kost een rondje borg. Daadwerkelijk gaan kost er twee.</li>
+        <li><b>Snurken is toegestaan,</b> erover klagen ook. Oordoppen zijn eigen verantwoordelijkheid, net als je bedkeuze bij het dobbelen.</li>
+        <li><b>Eén cultuurfoto per dag</b> naar het thuisfront is verplicht. Wie er meer stuurt, heeft duidelijk iets goed te maken.</li>
+        <li><b>Joris dobbelt, Joris verliest, Joris betaalt.</b> Dit is geen regel maar een natuurwet; hij staat hier alleen voor de volledigheid.</li>
+        <li><b>Knieën, ruggen en heupen</b> melden hun klachten vóór 09:00 bij de groep of houden zich de rest van de dag flink.</li>
+        <li><b>Groepsfoto's gaan pas de app in</b> na goedkeuring van alle vijf. Veto mag zonder opgaaf van reden, met opgaaf is leuker.</li>
+        <li><b>Wie als laatste bij de gate staat,</b> sjouwt de duty-free. Marcel, dit artikel is met liefde voor jou geschreven.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- VLUCHTEN -->
+<section class="sec" id="vluchten">
+  <div class="wrap">
+    <span class="eyebrow">Geregeld</span>
+    <h2>✈️ De vlucht — geboekt</h2>
+    <div class="booked">
+      <span class="bk-badge">✓ Geboekt</span>
+      <span class="bk-txt">Heen met Swiss, terug met ITA Airways. Alles staat vast — koffers pakken maar.</span>
+      <span class="bk-ref">Boekingsref. <b>Y77JOD</b></span>
+    </div>
+    <p class="intro">Geen directe vlucht geworden, maar wie klaagt er nou over een extra plaspauze? 😇 <b>Heen op vrijdagochtend, terug maandagmiddag.</b> Let op: de maatschappij heeft de terugvlucht gewijzigd (mail van 2 oktober) — we vertrekken nu om <b>12:40</b> uit Palermo en landen om <b>19:15</b> op Schiphol, met een royale overstap in Rome. De heenreis is ongewijzigd.</p>
+    <div class="opts">
+      <div class="opt">
+        <span class="lab geboekt">✓ Heenvlucht · vrijdag 23 okt 2026</span>
+        <div class="route">Amsterdam <span class="arr">→</span> Palermo</div>
+        <div class="kv"><span class="k">Vertrek AMS</span><span class="v">09:50</span></div>
+        <div class="kv"><span class="k">Aankomst PMO</span><span class="v">14:05</span></div>
+        <div class="kv"><span class="k">Reisduur</span><span class="v">4u 15m · 1 tussenstop</span></div>
+        <div class="kv"><span class="k">Overstap</span><span class="v">Zürich (ZRH)</span></div>
+        <div class="kv"><span class="k">Maatschappij</span><span class="v">Swiss · Economy</span></div>
+        <div class="kv"><span class="k">Vluchtnummers</span><span class="v">LX725 + LX1742</span></div>
+        <div class="kv"><span class="k">Bagage</span><span class="v">1 persoonlijk item + 1 handbagage</span></div>
+      </div>
+      <div class="opt">
+        <span class="lab geboekt">✓ Terugvlucht · maandag 26 okt 2026 · gewijzigd</span>
+        <div class="route">Palermo <span class="arr">→</span> Amsterdam</div>
+        <div class="kv"><span class="k">Vertrek PMO</span><span class="v">12:40</span></div>
+        <div class="kv"><span class="k">Aankomst Rome</span><span class="v">14:20</span></div>
+        <div class="kv"><span class="k">Overstap Rome (FCO)</span><span class="v">2u 55m 🍕</span></div>
+        <div class="kv"><span class="k">Vertrek Rome</span><span class="v">17:15</span></div>
+        <div class="kv"><span class="k">Aankomst AMS</span><span class="v">19:15</span></div>
+        <div class="kv"><span class="k">Maatschappij</span><span class="v">ITA Airways · Economy</span></div>
+        <div class="kv"><span class="k">Vluchtnummers</span><span class="v">AZ1764 + AZ112</span></div>
+        <div class="kv"><span class="k">Bagage</span><span class="v">1 persoonlijk item + 1 handbagage</span></div>
+      </div>
+    </div>
+    <div class="pax">
+      <span class="p">Martin <span>Dekker</span></span>
+      <span class="p">Martijn <span>van Houten</span></span>
+      <span class="p">Joris <span>van Solt</span></span>
+      <span class="p">Marcel <span>Braakhekke</span></span>
+      <span class="p">Nicolaas <span>Ebbing</span></span>
+    </div>
+    <p class="muted" style="margin-top:14px">5 man, 5 stoelen, 1 boeking. Geen ruimbagage erbij — dus reis licht en hou plek over voor die fles single malt uit de duty-free. 🥃</p>
+  </div>
+</section>
+
+<!-- TUSSENSTOP-GRAP -->
+<section class="sec" id="tussenstop" style="padding-top:24px">
+  <div class="wrap">
+    <div class="layover">
+      <span class="eyebrow" style="color:var(--gold)">Wetenschappelijk onderbouwd*</span>
+      <h3>Tussenstop: waarom overstappen béter is voor de man van 50+</h3>
+      <p class="sub">*door onszelf, aan de bar, met groot gezag en geen enkele bron.</p>
+      <ul>
+        <li><span class="ico">🚽</span><span><b>De plaspauze.</b> Op onze leeftijd is 4,5 uur non-stop vliegen zonder halte een gok die geen enkele reisverzekering dekt. Een tussenstop is een gegarandeerde, waardige toiletgang op vaste grond.</span></li>
+        <li><span class="ico">🚶</span><span><b>Gratis beweging.</b> Een overstap op Zürich is zomaar goed voor 3.000 stappen. Dat is meer cardio dan de rest van het weekend bij elkaar. De huisarts knikt goedkeurend.</span></li>
+        <li><span class="ico">🥃</span><span><b>Duty-free-tijd.</b> Eindelijk ruimte om die single malt uitgebreid te 'overwegen', 'm vijf minuten vast te houden, terug te zetten — en 'm dan alsnog te kopen.</span></li>
+        <li><span class="ico">🧘</span><span><b>De rug strekken.</b> Even rechtop staan, de wervels laten kraken, de knie testen op de roltrap. Een directe vlucht gunt je dat pauzemoment niet.</span></li>
+        <li><span class="ico">🐢</span><span><b>Geen haast meer.</b> Wij hoeven nergens meer heen te rennen. Rustig een espresso, rustig naar de gate. Rennen deden we één keer in Sevilla en Marcel heeft het er nóg over.</span></li>
+        <li><span class="ico">🍺</span><span><b>Simpele wiskunde.</b> Twee vluchten = twee keer dat het riemlampje uitgaat = twee keer legaal een biertje bestellen. Meer vluchten, meer momenten.</span></li>
+        <li><span class="ico">🍕</span><span><b>De Rome-bonus.</b> De maatschappij gunde ons op de terugweg bijna drie uur Fiumicino. Dat is geen vertraging, dat is een extra stedentrip: pizza al taglio, twee espresso's en nog steeds tijd om te verdwalen bij gate E.</span></li>
+      </ul>
+      <p class="kick">Kortom: die tussenstop is geen ongemak. Het is een feature. 🛬🛫</p>
+    </div>
+  </div>
+</section>
+
+<!-- VERBLIJF -->
+<section class="sec" id="verblijf">
+  <div class="wrap">
+    <span class="eyebrow">Geregeld</span>
+    <h2>🏠 Het appartement — geboekt</h2>
+    <div class="booked">
+      <span class="bk-badge">✓ Geboekt</span>
+      <span class="bk-txt">Casa Indipendenza — Cattedrale. Ons huis voor drie nachten, midden in het historisch centrum.</span>
+      <span class="bk-ref">Reserveringsnr. <b>6148491508</b></span>
+    </div>
+    <div class="casa">
+      <div class="desc">
+        <h4>Casa Indipendenza — Cattedrale</h4>
+        <p>In het kloppende hart van de Palermitaanse binnenstad, op een paar passen van de imposante <b>Cattedrale di Palermo</b>, ligt ons onderkomen voor het weekend. Een met liefde gerenoveerd appartement waar het oude Sicilië en modern comfort elkaar naadloos vinden.</p>
+        <p>Hoge plafonds, warme terracotta- en okertinten en authentieke details van een pand met een verhaal — maar mét de airco, de snelle wifi en de regendouche van deze eeuw. 's Ochtends drijft de geur van verse cannoli en espresso vanuit de steegjes naar binnen; op het <b>eigen terras</b> tik je het eerste én het laatste biertje van de dag weg terwijl de stad tot leven komt.</p>
+        <p>Vanaf de voordeur sta je binnen een minuut tussen de marktkraampjes van het centro storico, op loopafstand van de Quattro Canti, Ballarò en de Vucciria. Kortom: de perfecte uitvalsbasis om overdag cultuur te snuiven en 's avonds — nou ja, jullie kennen het draaiboek. 🍻</p>
+      </div>
+      <div class="facts">
+        <div class="kv"><span class="k">Ligging</span><span class="v">Historisch centrum, bij de Cattedrale</span></div>
+        <div class="kv"><span class="k">Score</span><span class="v">★ 9,2 (109 reviews)</span></div>
+        <div class="kv"><span class="k">Eigen terras</span><span class="v">Ja ☀️</span></div>
+        <div class="kv"><span class="k">Inchecken</span><span class="v">vr 23 okt · vanaf 15:00</span></div>
+        <div class="kv"><span class="k">Goed om te weten</span><span class="v">Host 30 min vooraf appen</span></div>
+        <div class="kv"><span class="k">Uitchecken</span><span class="v">ma 26 okt 2026</span></div>
+        <div class="kv"><span class="k">Gasten</span><span class="v">5 man · 3 nachten</span></div>
+        <div class="kv"><span class="k">Reserveringsnr.</span><span class="v">6148491508</span></div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:14px">Bed voor het weekend: <b>geregeld</b>. Eten, bier en de activiteiten hieronder komen daar nog bovenop — maar het dak boven ons hoofd staat vast en ligt op de allerbeste plek van de stad.</p>
+    <div class="gallery casa-gal">
+      <figure><img src="images/apt/apt-5.jpg" alt="Het eigen terras met parasol, loungeset en uitzicht op de bergen" loading="lazy"></figure>
+      <figure><img src="images/apt/apt-8.jpg" alt="Woonkamer met eettafel en toegang tot het terras" loading="lazy"></figure>
+      <figure><img src="images/apt/apt-4.jpg" alt="Keuken met eettafel en Siciliaanse tegels" loading="lazy"></figure>
+      <figure><img src="images/apt/apt-6.jpg" alt="Slaapkamer met tweepersoonsbed" loading="lazy"></figure>
+      <figure><img src="images/apt/apt-2.jpg" alt="Slaapkamer met twee eenpersoonsbedden" loading="lazy"></figure>
+      <figure><img src="images/apt/apt-3.jpg" alt="Badkamer met inloopdouche" loading="lazy"></figure>
+    </div>
+    <p class="muted" style="margin-top:10px">Drie slaapkamers, twee badkamers, een wasmachine (voor de optimisten) en een eigen terras met bergzicht. Wie de kamerverdeling wil beïnvloeden: het dobbelt zich op vrijdagmiddag vanzelf uit. Joris, neem je oordoppen mee voor jezelf.</p>
+  </div>
+</section>
+
+<!-- WEER -->
+<section class="sec" id="weer">
+  <div class="wrap">
+    <span class="eyebrow">Live uit Sicilië</span>
+    <h2>☀️ Het weer — 23 t/m 26 oktober</h2>
+    <p class="intro">Rechtstreeks uit de weermodellen voor Palermo, ververst bij elk bezoek. Eind oktober is het daar normaal een graad of 22 met veel zon — maar hieronder zie je wat het écht wordt.</p>
+    <div class="wx-grid" id="wx-grid">
+      <div class="wx"><div class="d">vr 23 okt</div><div class="ic">⏳</div><div class="t">—</div><div class="m">voorspelling laden…</div></div>
+      <div class="wx"><div class="d">za 24 okt</div><div class="ic">⏳</div><div class="t">—</div><div class="m">voorspelling laden…</div></div>
+      <div class="wx"><div class="d">zo 25 okt</div><div class="ic">⏳</div><div class="t">—</div><div class="m">voorspelling laden…</div></div>
+      <div class="wx"><div class="d">ma 26 okt</div><div class="ic">⏳</div><div class="t">—</div><div class="m">voorspelling laden…</div></div>
+    </div>
+    <div class="wx-verdict" id="wx-verdict">🏖️ <b>De Mondello-barometer:</b> zodra de voorspelling voor zondag binnen is, lees je hier of het ligbedweer wordt of langer-tafelen-weer.</div>
+    <p class="wx-note">Bron: Open-Meteo. Zolang de reisdagen nog buiten het bereik van de weermodellen vallen, tonen we wat er al wel bekend is. Kort voor vertrek staat hier de echte voorspelling.</p>
+  </div>
+</section>
+
+<!-- PROGRAMMA -->
+<section class="sec" id="programma">
+  <div class="wrap">
+    <span class="eyebrow">Het draaiboek · definitief</span>
+    <h2>🗓️ Het programma — vrijdag t/m maandag</h2>
+    <p class="intro">Niks meer te kiezen, alleen nog uit te voeren. Realistisch ritme: genoeg om te zien, genoeg tijd op het terras. Groen vinkje = geboekt en betaald.</p>
+    <div class="timeline">
+      <div class="day vr"><h5><span class="badge">Vrijdag 23</span> Aankomst &amp; Vucciria</h5><p><b>06:45</b> verzamelen Schiphol (ja, écht, Marcel) · <b>09:50</b> vertrek LX725 · <b>14:05</b> landen in Palermo. Bus of taxi naar het centrum, onderweg de host appen (die wil ons 30 minuten vooraf zien aankomen) en <b>vanaf 15:00 inchecken</b> in Casa Indipendenza. Late streetfood-lunch op markt <b>Ballarò</b> (arancine, panelle, en voor de durfals pani ca' meusa). 's Avonds komt de <b>Vucciria</b> tot leven als openluchtkroeg — Taverna Azzurra, drankje van €1 in de hand, zo de straat op. Marcel regelt de rondjes, Niels' dobbelstenen komen op tafel en we sluiten af in een Ierse pub.</p></div>
+      <div class="day za"><h5><span class="badge">Zaterdag 24</span> Fietsen, voetbal &amp; streetfood</h5><p><b>10:00</b> ✓ <b>Baja Bikes fietstour</b> (geboekt): ruim twee uur met een Nederlandse gids door het centro storico — de ideale cultuurronde, zittend. Lunch in een trattoria. Daarna hét hoogtepunt: ✓ <b>Palermo – Carrarese</b> in het <b>Stadio Renzo Barbera</b> — kaarten zijn binnen, Serie B, 36.000 man, roze shirts. De aftraptijd wordt 2-3 weken vooraf bekend; de <b>streetfood-tour van Streaty</b> ('s avonds, 3 uur, 8 proeverijen) plannen we er dan omheen. Wat er ook gebeurt: deze zaterdag eindigt vol en voldaan.</p></div>
+      <div class="day zo"><h5><span class="badge">Zondag 25</span> Mummies &amp; Mondello</h5><p>De wintertijd gaat in: klok een uur terug, dus <b>een gratis extra uur slaap</b> — het best getimede cadeau in de geschiedenis van het mannenweekend. <b>In de loop van de ochtend</b> (open 9:00-12:30) naar de <b>Catacombe dei Cappuccini</b>: kaartjes aan de deur, meer hieronder. Bij mooi weer door naar <b>Mondello</b>: bus van 20 minuten, turquoise baai, ligbed, koud biertje, fritto misto. Bij twijfelweer: plan B is langer tafelen, en daar zijn wij uitstekend in. 's Avonds het laatste grote diner en de <b>Kalsa</b>.</p></div>
+      <div class="day ma"><h5><span class="badge">Maandag 26</span> Espresso &amp; cannolo</h5><p>Laatste espresso met een verse cannolo, nog één rondje markt voor cadeautjes met een verhaal. Rond <b>10:00</b> richting het vliegveld. <b>12:40</b> vertrek AZ1764, bijna drie uur Rome-bonus op Fiumicino, <b>19:15</b> landen op Schiphol — voldaan, en met genoeg materiaal voor volgend jaar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA NOTTE -->
+<section class="sec notte" id="nacht">
+  <div class="wrap">
+    <span class="eyebrow">Niet doorsturen naar de familie-app</span>
+    <span class="neon">Aperitivo · Vucciria · na tienen</span>
+    <h2>Als de zon onder is <em>verandert Palermo van karakter</em></h2>
+    <p class="lede">Overdag is Sicilië barok, kathedralen en een gids die te lang praat. Na tienen gaan de luiken open, loopt de Vucciria vol, wordt er op straat gedanst en kost een glas wijn een euro. Palermitanen kleden zich daar serieus voor. Wij doen ons best.</p>
+    <div class="notte-grid">
+      <div class="ncard"><b>La bella figura</b><p>In Palermo ga je niet even snel de deur uit. Er wordt gekeken, er wordt gekleed, er wordt geflirt op een niveau waar wij met een poloshirt tegenaan mogen boksen. Neem dat ene overhemd mee. Ja, díe.</p></div>
+      <div class="ncard"><b>Il colpo di fulmine</b><p>De donderslag — het Italiaanse woord voor die ene blik over een terras die de rest van je avond bepaalt. Statistisch overkomt het niemand van ons. Statistiek is nog nooit een reden geweest om vroeg naar huis te gaan.</p></div>
+      <div class="ncard"><b>De harde cijfers</b><p>Gemiddelde leeftijd van dit gezelschap: comfortabel boven de doelgroep van elke club op Via Candelai. Gemiddeld zelfvertrouwen na drie Aperol: ruim daaronder. Ergens tussen die twee zit de avond.</p></div>
+      <div class="ncard"><b>Il rientro</b><p>Om half twee roept iemand “nog één”. Om twee uur zit diezelfde man met een limoncello uit te leggen hoe hij die knie ooit versleten heeft. Dat is geen mislukking. Dat is de traditie.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MANNENDINGEN -->
+<section class="sec" id="mannendingen">
+  <div class="wrap">
+    <span class="eyebrow">De uitslag is verwerkt</span>
+    <h2>🎯 Dit gaan we doen</h2>
+    <p class="intro">Jullie hebben gestemd, Martin &amp; Martijn hebben geknoopt doorgehakt, en dit is het resultaat. Prijzen zijn richtbedragen voor entree/tickets, exclusief eten en drinken.</p>
+    <div class="acts">
+      <div class="act guinness"><div class="h"><b>☘️ Ierse pub-crawl · Guinness tappen</b><span class="price">pint €5–6</span></div><p>Guinness tappen in Minas Tirith, Jayson Irish Pub of Shamrock. Dobbelbeker mee — verliezer trakteert (dus Joris).</p><svg class="pint" viewBox="0 0 62 92" aria-hidden="true"><defs><clipPath id="pintglass"><path d="M16,6 L46,6 L42,84 Q42,88 38,88 L24,88 Q20,88 20,84 Z"/></clipPath></defs><g clip-path="url(#pintglass)"><g class="liquid"><rect class="foam" x="10" y="0" width="42" height="14"/><rect class="beer" x="10" y="14" width="42" height="92"/></g></g><path class="glassline" d="M16,6 L46,6 L42,84 Q42,88 38,88 L24,88 Q20,88 20,84 Z"/><rect class="shine" x="23" y="16" width="4" height="58" rx="2"/></svg></div>
+      <div class="act"><div class="h"><b>🍺 Vucciria bij avond</b><span class="price">drankje €1–2</span></div><p>De markt als openluchtbar. Taverna Azzurra, plastic bekertje, zo de straat op. Goedkoopste avond van je leven.</p></div>
+      <div class="act"><div class="h"><b>🚴 Baja Bikes fietstour<span class="lab-booked">✓ geboekt</span></b><span class="price">za 10:00</span></div><p>Ruim twee uur fietsen met een Nederlandstalige gids door het centro storico. Cultuur op wieltjes: alle hoogtepunten, nul blaren, en om twaalf uur ben je weer vrij man. De enige voorwaarde: nuchter genoeg om rechtuit te fietsen. De lat ligt dus laag.</p></div>
+      <div class="act"><div class="h"><b>⚽ Palermo – Carrarese<span class="lab-booked">✓ tickets binnen</span></b><span class="price">za 24 okt</span></div><p>Serie B in het <b>Stadio Renzo Barbera</b>: 36.000 man, roze shirts, fanatiek publiek. De kaarten zijn geregeld; de aftraptijd (middag of avond) volgt 2-3 weken vooraf. Paspoort mee naar het stadion — Italiaanse tickets staan op naam en daar wordt op gecontroleerd.</p></div>
+      <div class="act feature" id="streetfood"><div class="h"><b>🍢 Streetfood-tour te voet · zaterdagavond</b><span class="price">€59–69 p.p.</span></div><p><b>Streaty's Palermo Night Street Food Tour</b> is dé manier om de stad te proeven: drie uur met een local langs de avondmarkten, <b>acht proeverijen en drie drankjes</b> (Siciliaans bier of wijn), start bij Teatro Massimo, finish bij de oude haven. Kleine groep, max 12 man — met ons vijven claimen we dus bijna de halve tour. Boeken kan online; annuleren is gratis tot 24 uur vooraf. Slimme zet: boeken zodra de aftraptijd van de wedstrijd bekend is, dan prikken we de tour er strak omheen.</p><div class="booklinks"><a href="https://www.streaty.com/street-food-tours/palermo-night-tour/" target="_blank" rel="noopener">Boeken bij Streaty →</a><a href="https://www.getyourguide.com/palermo-l387/palermo-small-group-night-street-food-tour-t396810/" target="_blank" rel="noopener">Alternatief: GetYourGuide →</a></div></div>
+      <div class="act"><div class="h"><b>🏖️ Mondello strand &amp; beachclub</b><span class="price">bus €1,40 · club €10–15</span></div><p>Turquoise baai op 20 min met de bus. Ligbed, koud biertje, fritto misto bij de boulevard.</p></div>
+      <div class="act"><div class="h"><b>🍹 Aperitivo &amp; mooi volk</b><span class="price">Spritz €5–7</span></div><p>De aperitivo-strip Via Candelai: hét moment om met een Spritz het mooiste volk van Palermo voorbij te zien komen.</p></div>
+      <div class="act"><div class="h"><b>🍸 Kalsa cocktailbars</b><span class="price">€7–9</span></div><p>De Kalsa is de stijlvolle nachtbuurt: lounges en cocktailbars voor als het wat later wordt.</p></div>
+      <div class="act feature" id="catacombe"><div class="h"><b>💀 Catacombe dei Cappuccini · zondagochtend</b><span class="price">± €5 · aan de deur</span></div><p>De vreemdste bezienswaardigheid van Sicilië, en misschien wel van Europa: onder het kapucijnenklooster hangen en liggen zo'n <b>8.000 gemummificeerde Palermitanen</b>, keurig in hun zondagse kleren, gesorteerd op beroep — priesters, advocaten, militairen, zelfs een gang met professoren. Van de 16e eeuw tot begin vorige eeuw was dit dé manier om begraven te worden als je er in Palermo toe deed. Beroemdste bewoner: de kleine Rosalia Lombardo (1920), zo gaaf geconserveerd dat ze "het mooiste meisje van de wereld" wordt genoemd. Macaber? Zeker. Onvergetelijk? Ook dat. En eerlijk: het is de enige gelegenheid dit weekend waar wíj de jongste en kwiekste van de zaal zijn.</p><p style="margin-top:8px"><b>Praktisch:</b> zondagochtend open van 9:00 tot 12:30 (laatste entree 12:15). Online tickets bestaan niet — gewoon aan de deur betalen, neem wat contant geld mee. Fotograferen is er verboden, dus de verplichte cultuurfoto voor het thuisfront maak je buiten. Twintig minuten lopen vanaf het appartement, de wandeling erheen telt als detox van zaterdag.</p></div>
+      <div class="act"><div class="h"><b>🔞 De late uurtjes</b><span class="price">vraag de taxi</span></div><p>Eerlijk is eerlijk: een echte tietenbar is Palermo niet. Wél clubs en cabarets — de taxichauffeur weet wat. Anders houden we het op de beachclubs en de Kalsa, waar het mooiste volk rondloopt. 😏</p></div>
+    </div>
+
+    <div class="gallery">
+      <figure><img src="images/palermo-1.jpg" alt="Teatro Massimo" loading="lazy"></figure>
+      <figure><img src="images/palermo-2.jpg" alt="Palermo" loading="lazy"></figure>
+      <figure><img src="images/palermo-3.jpg" alt="Kathedraal van Palermo" loading="lazy"></figure>
+      <figure><img src="images/palermo-4.jpg" alt="Mondello strand" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- GASTENBOEK -->
+<section class="vote-sec" id="gastenboek">
+  <div class="wrap">
+    <div class="gb-card">
+      <span class="eyebrow" style="color:var(--gold)">Voor iedereen zichtbaar, voor altijd</span>
+      <h2>📖 Het gastenboek</h2>
+      <p class="intro">Zeg er wat van. Verheug je hardop, stel eisen aan het ontbijt, of begin alvast met elkaar afzeiken — alles mag, alles blijft staan, en verwijderen kan niet. Kies je naam, tik je bericht, en de hele ploeg leest mee.</p>
+      <div class="gb-names" id="gbnames">
+        <button type="button" data-n="Martin">Martin</button>
+        <button type="button" data-n="Martijn">Martijn</button>
+        <button type="button" data-n="Joris">Joris</button>
+        <button type="button" data-n="Niels">Niels</button>
+        <button type="button" data-n="Marcel">Marcel</button>
+      </div>
+      <textarea id="gbtext" maxlength="500" placeholder="Bijvoorbeeld: wie neemt de dobbelstenen mee? En wie legt Marcel uit hoe vroeg 06:45 is?"></textarea>
+      <button class="gb-send" id="gbsend" type="button">Plaats in het gastenboek →</button>
+      <p class="gb-status" id="gbstatus"></p>
+      <div class="gb-list" id="gblist"><p class="gb-status">Gastenboek laden…</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="disc">
+  <div class="wrap">
+    <div class="box">
+      <h3>De harde feiten</h3>
+      <ul>
+        <li><b>Vlucht: geboekt ✓</b> — boekingsreferentie <b>Y77JOD</b>. Heen vrijdag 23 okt met Swiss (LX725 + LX1742, via Zürich): 09:50 AMS → 14:05 PMO. Terug maandag 26 okt met ITA Airways (AZ1764 + AZ112, via Rome): 12:40 PMO → 19:15 AMS. <b>Let op: de terugvlucht is door de maatschappij gewijzigd</b> (nieuwe vluchtnummers en tijden, mail 2 okt). Economy, handbagage, geen ruimbagage.</li>
+        <li><b>Appartement: geboekt ✓</b> — Casa Indipendenza — Cattedrale, reserveringsnummer <b>6148491508</b>. Inchecken vr 23 okt vanaf 15:00 (host 30 min vooraf appen), uitchecken ma 26 okt, 5 man / 3 nachten.</li>
+        <li><b>Fietstour: geboekt ✓</b> — Baja Bikes, zaterdag 24 okt om 10:00.</li>
+        <li><b>Voetbal: tickets binnen ✓</b> — Palermo – Carrarese, za 24 okt, Stadio Renzo Barbera. Exacte aftraptijd wordt 2–3 weken vooraf bevestigd. Paspoort mee: tickets staan op naam.</li>
+        <li><b>Streetfood-tour: nog boeken</b> — Streaty Night Tour, zaterdagavond, €59–69 p.p. Boeken zodra de aftraptijd van de wedstrijd bekend is; gratis annuleren tot 24 uur vooraf.</li>
+        <li><b>Catacombe:</b> zondagochtend, open 9:00–12:30 (laatste entree 12:15). Geen online verkoop — kaartjes aan de deur, contant geld mee.</li>
+        <li><b>Wintertijd:</b> in de nacht van zaterdag op zondag gaat de klok een uur terug. Extra uur, gratis.</li>
+        <li><b>Activiteitenprijzen</b> zijn richtbedragen voor entree/tickets, exclusief eten en drinken.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="big">Palermo · 23–26 oktober 2026</span>
+  Iedereen koos, Palermo won, alles is geboekt. Het programma staat, Joris verliest het dobbelen.<br>
+  Gemaakt met te veel liefde en één Guinness te veel. 🍻
+</footer>
+
+<script>
+// smooth-scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var id=this.getAttribute('href').slice(1);var el=document.getElementById(id);
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'',this.getAttribute('href'));}
+  });
+});
+
+// ---------- Ticker ----------
+(function(){
+  var lines=[
+    '⏳ <b>Nog even…</b> en we staan met z\'n vijven op Sicilië',
+    '✈️ Terugvlucht gewijzigd: <b>12:40 → 19:15</b>, met Rome-bonus',
+    '⚽ <b>Tickets Palermo – Carrarese zijn binnen</b> · aftraptijd volgt',
+    '🚴 Baja Bikes · zaterdag <b>10:00</b> · nuchter verschijnen is onderdeel van de tour',
+    '🕰️ Zondag wintertijd: <b>gratis extra uur</b> — ongekende luxe',
+    '💀 Zondagochtend catacomben: eindelijk publiek dat niet wegloopt bij onze verhalen',
+    '🎲 De dobbelstenen gaan mee · Joris, neem je pinpas',
+    '🧳 Geen ruimbagage · wel ruimte voor single malt',
+    '📖 Nieuw: het gastenboek · zeg er wat van, onderaan deze site'
+  ];
+  var belt=document.getElementById('tickerbelt');
+  if(belt){var h='';lines.forEach(function(l){h+='<span>'+l+'</span>';});belt.innerHTML=h+h;}
+})();
+
+// ---------- Countdown ----------
+(function(){
+  var box=document.getElementById('countdown');
+  if(!box)return;
+  var target=new Date('2026-10-23T06:45:00+02:00').getTime(); // verzamelen Schiphol
+  function pad(n){return (n<10?'0':'')+n;}
+  function tick(){
+    var d=target-Date.now();
+    if(d<=0){box.innerHTML='<span class="cd-done">De mannen zijn onderweg. 🍻</span>';return;}
+    var days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),min=Math.floor(d%36e5/6e4),sec=Math.floor(d%6e4/1e3);
+    box.innerHTML='<div class="cd"><b>'+days+'</b><span>dagen</span></div>'+
+      '<div class="cd"><b>'+pad(hrs)+'</b><span>uur</span></div>'+
+      '<div class="cd"><b>'+pad(min)+'</b><span>min</span></div>'+
+      '<div class="cd"><b>'+pad(sec)+'</b><span>sec</span></div>';
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+
+// ---------- Gastenboek (Supabase) ----------
+(function(){
+  var SB='https://vgxekaalgdavceaxpbpq.supabase.co/rest/v1/mannenweekend_reacties';
+  var KEY='sb_publishable_OUCwG-5U1ukvy6zPvA-vYg_pec0Ydet';
+  var H={'apikey':KEY,'Authorization':'Bearer '+KEY};
+  var naam='';
+  var names=document.getElementById('gbnames');
+  var status=document.getElementById('gbstatus');
+  var list=document.getElementById('gblist');
+  var txt=document.getElementById('gbtext');
+  var send=document.getElementById('gbsend');
+  if(!names)return;
+  try{naam=localStorage.getItem('gb-naam')||'';}catch(e){}
+  function markName(){
+    names.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.n===naam);});
+  }
+  names.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    naam=b.dataset.n;markName();
+    try{localStorage.setItem('gb-naam',naam);}catch(e2){}
+  });
+  markName();
+  function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
+  function when(iso){
+    try{
+      var dt=new Date(iso);
+      return dt.toLocaleDateString('nl-NL',{day:'numeric',month:'short'})+' · '+dt.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit'});
+    }catch(e){return '';}
+  }
+  function load(){
+    fetch(SB+'?select=naam,reactie,created_at&order=created_at.desc&limit=100',{headers:H})
+      .then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(rows){
+        if(!rows.length){list.innerHTML='<p class="gb-status">Nog helemaal leeg. De eerste mag de toon zetten — maak het de moeite waard.</p>';return;}
+        var h='';
+        rows.forEach(function(r,i){
+          var rot=((i%3)-1)*0.6;
+          h+='<div class="gb-item" style="--r:'+rot+'deg"><div class="who"><b><span class="gb-avatar">'+esc((r.naam||'?').charAt(0))+'</span>'+esc(r.naam)+'</b><time>'+when(r.created_at)+'</time></div><p>'+esc(r.reactie)+'</p></div>';
+        });
+        list.innerHTML=h;
+      })
+      .catch(function(){list.innerHTML='<p class="gb-status">Gastenboek even niet bereikbaar. Herlaad de pagina en probeer opnieuw.</p>';});
+  }
+  send.addEventListener('click',function(){
+    var msg=(txt.value||'').trim();
+    if(!naam){status.textContent='Kies eerst je naam — anoniem roepen is voor lafaards.';return;}
+    if(msg.length<2){status.textContent='Daar zul je toch echt iets moeten typen, '+naam+'.';return;}
+    send.disabled=true;status.textContent='Versturen…';
+    fetch(SB,{method:'POST',headers:Object.assign({'Content-Type':'application/json','Prefer':'return=minimal'},H),body:JSON.stringify({naam:naam,reactie:msg})})
+      .then(function(r){
+        if(!r.ok)throw 0;
+        txt.value='';status.textContent='Staat erin. Voor eeuwig. 😏';
+        load();
+      })
+      .catch(function(){status.textContent='Versturen mislukte — probeer het nog een keer.';})
+      .finally(function(){send.disabled=false;});
+  });
+  load();
+  setInterval(load,60000);
+})();
+
+// ---------- Live weer (Open-Meteo) ----------
+(function(){
+  var DAYS=[['2026-10-23','vr 23 okt'],['2026-10-24','za 24 okt'],['2026-10-25','zo 25 okt'],['2026-10-26','ma 26 okt']];
+  var grid=document.getElementById('wx-grid');
+  var verdict=document.getElementById('wx-verdict');
+  function icon(code){
+    if(code===0)return ['\u2600\uFE0F','strak blauw'];
+    if(code===1)return ['\uD83C\uDF24\uFE0F','vrijwel zonnig'];
+    if(code===2)return ['\u26C5','half bewolkt'];
+    if(code===3)return ['\u2601\uFE0F','bewolkt'];
+    if(code===45||code===48)return ['\uD83C\uDF2B\uFE0F','mistig'];
+    if(code>=51&&code<=57)return ['\uD83C\uDF26\uFE0F','motregen'];
+    if(code>=61&&code<=67)return ['\uD83C\uDF27\uFE0F','regen'];
+    if(code>=80&&code<=82)return ['\uD83C\uDF26\uFE0F','buien'];
+    if(code>=95)return ['\u26C8\uFE0F','onweer'];
+    return ['\uD83C\uDF24\uFE0F','wisselend'];
+  }
+  function card(label,inner){return '<div class="wx"><div class="d">'+label+'</div>'+inner+'</div>';}
+  function fallbackCard(label){return card(label,'<div class="ic">\uD83D\uDCC5</div><div class="t">~22\u00B0<small>/16\u00B0</small></div><div class="m">klimaatgemiddelde \u2014 voorspelling volgt</div>');}
+  var url='https://api.open-meteo.com/v1/forecast?latitude=38.1157&longitude=13.3615&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FRome&start_date=2026-10-23&end_date=2026-10-26';
+  fetch(url).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){
+    var d=j.daily||{};var t=d.time||[];
+    var html='';var got=0;var sun=null;
+    DAYS.forEach(function(day){
+      var i=t.indexOf(day[0]);
+      if(i<0||d.temperature_2m_max[i]==null){html+=fallbackCard(day[1]);return;}
+      got++;
+      var ic=icon(d.weather_code[i]);
+      var rain=d.precipitation_probability_max&&d.precipitation_probability_max[i]!=null?d.precipitation_probability_max[i]:null;
+      if(day[0]==='2026-10-25')sun={tmax:d.temperature_2m_max[i],rain:rain,code:d.weather_code[i]};
+      html+=card(day[1],'<div class="ic">'+ic[0]+'</div><div class="t">'+Math.round(d.temperature_2m_max[i])+'\u00B0<small>/'+Math.round(d.temperature_2m_min[i])+'\u00B0</small></div><div class="m">'+ic[1]+(rain!=null?' \u00B7 '+rain+'% regenkans':'')+'</div>');
+    });
+    grid.innerHTML=html;
+    if(sun){
+      var good=(sun.rain==null||sun.rain<40)&&sun.tmax>=18;
+      verdict.innerHTML=good
+        ?'\uD83C\uDFD6\uFE0F <b>De Mondello-barometer zegt: GAAN.</b> Zondag '+Math.round(sun.tmax)+' graden'+(sun.rain!=null?' en maar '+sun.rain+'% regenkans':'')+' \u2014 ligbed, koud biertje, fritto misto. Zonnebrand mee, ijdeltuiten.'
+        :'\uD83C\uDF7D\uFE0F <b>De Mondello-barometer twijfelt.</b> Zondag wordt het '+Math.round(sun.tmax)+' graden'+(sun.rain!=null?' met '+sun.rain+'% regenkans':'')+'. Plan B treedt in werking: langer tafelen. Daar zijn wij toevallig wereldtop in.';
+    } else if(got===0){
+      verdict.innerHTML='\uD83D\uDCC5 <b>Nog even geduld:</b> de weermodellen kijken maximaal ruim twee weken vooruit. Zodra 23-26 oktober in beeld komt, staat hier vanzelf de echte voorspelling. Tot die tijd: eind oktober in Palermo is normaal zo\u0027n 22 graden met flink wat zon.';
+    }
+  }).catch(function(){
+    var html='';DAYS.forEach(function(day){html+=fallbackCard(day[1]);});
+    grid.innerHTML=html;
+    verdict.innerHTML='\uD83D\uDCC5 <b>Voorspelling tijdelijk niet op te halen.</b> Eind oktober in Palermo is normaal zo\u0027n 22 graden overdag met veel zon en af en toe een bui. Herlaad de pagina voor een nieuwe poging.';
+  });
+})();
+</script>
+</body>
+</html>
